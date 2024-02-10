@@ -1,4 +1,4 @@
-currentBuild.displayname="Basics-#"+currentBuild.number
+currentBuild.displayName="Basics-#"+currentBuild.number
 pipeline{
     agent any;
     stages{
