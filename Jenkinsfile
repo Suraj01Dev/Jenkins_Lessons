@@ -12,15 +12,10 @@ pipeline{
     }
 
     stages{
-        stage("Docker build ")
-        {
-            steps
-            {
-            sh
-            '''
-            docker build . -t "${image_name}:${tag}"
-            '''
-            }
+        stage("Docker build "){
+        steps{
+        sh '''docker build . -t "${image_name}:${tag}" '''
+        }
         }
     }
 }
