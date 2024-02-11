@@ -1,6 +1,6 @@
 pipeline{
     agent {
-        label: "jenkins-ssh-agent-docker"
+        label "jenkins-ssh-agent-docker"
     }
     environment{
         release="1.0.0"
