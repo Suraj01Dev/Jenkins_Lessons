@@ -1,4 +1,5 @@
-currentBuild.displayname = "basics-#"+currentBuild.number
+currentBuild.displayName = "basics-#"+currentBuild.number
+
 pipeline
 {
     agent{
