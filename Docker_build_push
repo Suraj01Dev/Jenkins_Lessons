@@ -20,6 +20,17 @@ pipeline
     
             }
         }
+        stage("Docker Push")
+        {
+            steps{
+                withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerhubpwd')]) {
 
+                sh 'sudo docker push -u suraj01dev -p ${dockerhubpwd}'
+                }
+            }
+        }
     }
 }
+
+
+
