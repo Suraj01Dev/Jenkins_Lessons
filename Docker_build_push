@@ -1,5 +1,6 @@
-currentBuild.displayname = "Docker_Build_Push-#"+currentBuild.number
-pipeline{
+currentBuild.displayname = "basics-#"+currentBuild.number
+pipeline
+{
     agent{
         label "jenkins-ssh-agent-docker"
     }
