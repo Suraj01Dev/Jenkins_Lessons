@@ -1,0 +1,12 @@
+pipeline{
+    agent{
+        label "jenkins-ssh-agent-docker"
+    }
+    stages{
+        stage("Welcome")
+        {
+            sh 'echo "Welcome" '
+        }
+        
+    }
+}
