@@ -16,7 +16,7 @@ pipeline
         stage("Docker Build")
         {
             steps{
-                sh 'sudo docker build -t hello .'
+                sh 'sudo docker build -t suraj01dev/hello:latest .'
     
             }
         }
@@ -25,7 +25,9 @@ pipeline
             steps{
                 withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerhubpwd')]) {
 
-                sh 'sudo docker push -u suraj01dev -p ${dockerhubpwd}'
+                sh 'sudo docker login -u suraj01dev -p ${dockerhubpwd}'
+                sh 'sudo push suraj01dev/hello:latest'
+
                 }
             }
         }
