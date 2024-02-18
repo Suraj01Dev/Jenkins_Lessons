@@ -5,6 +5,14 @@ pipeline
     agent{
         label "jenkins-ssh-agent-docker"
     }
+    environment{
+        username="suraj01dev"
+        release="1.0.0"
+        app_name="hello"
+        tag=${release}+"-"+${currentBuild.number}
+        image_name=${username}+"/"+${app_name}
+
+    }
     stages{
         stage("Welcome")
         {
@@ -16,7 +24,7 @@ pipeline
         stage("Docker Build")
         {
             steps{
-                sh 'sudo docker build -t suraj01dev/hello:latest .'
+                sh 'sudo docker build -t ${image_name}:${tag} .'
     
             }
         }
@@ -26,7 +34,7 @@ pipeline
                 withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerhubpwd')]) {
 
                 sh 'sudo docker login -u suraj01dev -p ${dockerhubpwd}'
-                sh 'sudo docker push suraj01dev/hello:latest'
+                sh 'sudo docker push ${image_name}:${tag}'
 
                 }
             }
