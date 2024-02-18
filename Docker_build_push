@@ -1,4 +1,4 @@
-currentBuild.displayName = "basics-#"+currentBuild.number
+currentBuild.displayName = "DockerBuildPush-#"+currentBuild.number
 
 pipeline
 {
