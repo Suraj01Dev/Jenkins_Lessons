@@ -26,7 +26,7 @@ pipeline
                 withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerhubpwd')]) {
 
                 sh 'sudo docker login -u suraj01dev -p ${dockerhubpwd}'
-                sh 'sudo push suraj01dev/hello:latest'
+                sh 'sudo docker push suraj01dev/hello:latest'
 
                 }
             }
